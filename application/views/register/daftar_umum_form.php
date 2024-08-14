@@ -108,7 +108,9 @@
 
 
                     <tr><td width='200'>Level User <?php echo form_error('id_user_level') ?></td><td>
-                            <?php echo cmb_dinamis('id_user_level', 'tbl_user_level', 'nama_level', 'id_user_level', $id_user_level,'DESC') ?>
+                            <select name="id_user_level" id="id_user_level" class="form-control">
+                                <option value="2">Masyarakat</option>
+                            </select>
                             <!--<input type="text" class="form-control" name="id_user_level" id="id_user_level" placeholder="Id User Level" value="<?php echo $id_user_level; ?>" />--></td></tr>
                             <tr><td width='200'>Status Aktif <?php echo form_error('is_aktif') ?></td><td>
                             <?php echo form_dropdown('is_aktif', array('y' => 'AKTIF', 'n' => 'TIDAK AKTIF'), $is_aktif, array('class' => 'form-control')); ?>

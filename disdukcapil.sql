@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Aug 14, 2024 at 03:53 AM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.0.25
+-- Host: localhost:3306
+-- Generation Time: Aug 14, 2024 at 06:32 AM
+-- Server version: 8.0.30
+-- PHP Version: 7.4.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,20 +28,20 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `dt_penduduk` (
-  `id_penduduk` int(11) NOT NULL,
-  `no_kk` varchar(16) NOT NULL,
-  `nik` varchar(16) NOT NULL,
-  `nama` varchar(30) NOT NULL,
-  `alamat` varchar(255) NOT NULL,
-  `jenis_kelamin` varchar(16) NOT NULL,
-  `tempat_lahir` varchar(15) NOT NULL,
+  `id_penduduk` int NOT NULL,
+  `no_kk` varchar(16) COLLATE utf8mb4_general_ci NOT NULL,
+  `nik` varchar(16) COLLATE utf8mb4_general_ci NOT NULL,
+  `nama` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
+  `alamat` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `jenis_kelamin` varchar(16) COLLATE utf8mb4_general_ci NOT NULL,
+  `tempat_lahir` varchar(15) COLLATE utf8mb4_general_ci NOT NULL,
   `tgl_lahir` date NOT NULL,
-  `agama` varchar(10) NOT NULL,
-  `pendidikan` varchar(10) NOT NULL,
-  `pekerjaan` varchar(30) NOT NULL,
-  `gol_darah` varchar(2) NOT NULL,
-  `stts_perkawinan` varchar(30) NOT NULL,
-  `no_hp` varchar(13) NOT NULL
+  `agama` varchar(10) COLLATE utf8mb4_general_ci NOT NULL,
+  `pendidikan` varchar(10) COLLATE utf8mb4_general_ci NOT NULL,
+  `pekerjaan` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
+  `gol_darah` varchar(2) COLLATE utf8mb4_general_ci NOT NULL,
+  `stts_perkawinan` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
+  `no_hp` varchar(13) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -79,25 +79,25 @@ INSERT INTO `dt_penduduk` (`id_penduduk`, `no_kk`, `nik`, `nama`, `alamat`, `jen
 --
 
 CREATE TABLE `tbl_aktalahir` (
-  `id_aktalahir` int(11) NOT NULL,
+  `id_aktalahir` int NOT NULL,
   `tgl_input` date NOT NULL,
-  `no_akta` varchar(100) NOT NULL,
-  `nama_bayi` varchar(100) NOT NULL,
-  `jenis_kelamin_bayi` varchar(11) NOT NULL,
-  `tempat_lahir_bayi` varchar(100) NOT NULL,
+  `no_akta` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `nama_bayi` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `jenis_kelamin_bayi` varchar(11) COLLATE utf8mb4_general_ci NOT NULL,
+  `tempat_lahir_bayi` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
   `tgl_lahir_bayi` date NOT NULL,
-  `jam` varchar(10) NOT NULL,
-  `berat_bayi` varchar(5) NOT NULL,
-  `kelahiran_ke` varchar(2) NOT NULL,
-  `penolong_kelahiran` varchar(30) NOT NULL,
-  `imagebaru1` text NOT NULL,
-  `imagebaru2` text NOT NULL,
-  `imagebaru3` text NOT NULL,
-  `imagebaru4` text NOT NULL,
-  `id_penduduk` int(11) NOT NULL,
-  `status` varchar(200) NOT NULL,
-  `id_papa` int(11) NOT NULL,
-  `id_mama` int(11) NOT NULL
+  `jam` varchar(10) COLLATE utf8mb4_general_ci NOT NULL,
+  `berat_bayi` varchar(5) COLLATE utf8mb4_general_ci NOT NULL,
+  `kelahiran_ke` varchar(2) COLLATE utf8mb4_general_ci NOT NULL,
+  `penolong_kelahiran` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
+  `imagebaru1` text COLLATE utf8mb4_general_ci NOT NULL,
+  `imagebaru2` text COLLATE utf8mb4_general_ci NOT NULL,
+  `imagebaru3` text COLLATE utf8mb4_general_ci NOT NULL,
+  `imagebaru4` text COLLATE utf8mb4_general_ci NOT NULL,
+  `id_penduduk` int NOT NULL,
+  `status` varchar(200) COLLATE utf8mb4_general_ci NOT NULL,
+  `id_papa` int NOT NULL,
+  `id_mama` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -123,10 +123,10 @@ INSERT INTO `tbl_aktalahir` (`id_aktalahir`, `tgl_input`, `no_akta`, `nama_bayi`
 --
 
 CREATE TABLE `tbl_hak_akses` (
-  `id` int(11) NOT NULL,
-  `id_user_level` int(11) NOT NULL,
-  `id_menu` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+  `id` int NOT NULL,
+  `id_user_level` int NOT NULL,
+  `id_menu` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_hak_akses`
@@ -136,7 +136,7 @@ INSERT INTO `tbl_hak_akses` (`id`, `id_user_level`, `id_menu`) VALUES
 (15, 1, 1),
 (29, 2, 2),
 (42, 1, 223),
-(43, 0, 224),
+(43, 2, 225),
 (44, 1, 224),
 (45, 1, 225),
 (46, 1, 10);
@@ -148,18 +148,18 @@ INSERT INTO `tbl_hak_akses` (`id`, `id_user_level`, `id_menu`) VALUES
 --
 
 CREATE TABLE `tbl_kematian` (
-  `id_kematian` int(11) NOT NULL,
+  `id_kematian` int NOT NULL,
   `tgl_input_kematian` date NOT NULL,
   `tgl_kematian` date NOT NULL,
-  `penyebab_kematian` varchar(20) NOT NULL,
-  `tempat_kematian` varchar(20) NOT NULL,
-  `imagekematian1` text NOT NULL,
-  `imagekematian2` text NOT NULL,
-  `imagekematian3` text NOT NULL,
-  `imagekematian4` text NOT NULL,
-  `id_penduduk` int(11) NOT NULL,
-  `si_pemohon` int(11) NOT NULL,
-  `id_meninggal` int(11) NOT NULL
+  `penyebab_kematian` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
+  `tempat_kematian` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
+  `imagekematian1` text COLLATE utf8mb4_general_ci NOT NULL,
+  `imagekematian2` text COLLATE utf8mb4_general_ci NOT NULL,
+  `imagekematian3` text COLLATE utf8mb4_general_ci NOT NULL,
+  `imagekematian4` text COLLATE utf8mb4_general_ci NOT NULL,
+  `id_penduduk` int NOT NULL,
+  `si_pemohon` int NOT NULL,
+  `id_meninggal` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -186,20 +186,20 @@ INSERT INTO `tbl_kematian` (`id_kematian`, `tgl_input_kematian`, `tgl_kematian`,
 --
 
 CREATE TABLE `tbl_kia` (
-  `id_kia` int(11) NOT NULL,
-  `nik_kia` varchar(16) NOT NULL,
+  `id_kia` int NOT NULL,
+  `nik_kia` varchar(16) COLLATE utf8mb4_general_ci NOT NULL,
   `tgl_input_kia` date NOT NULL,
-  `agama_kia` varchar(16) NOT NULL,
-  `warganegara` varchar(30) NOT NULL,
-  `image_kia1` text NOT NULL,
-  `image_kia2` text NOT NULL,
-  `image_kia3` text NOT NULL,
-  `image_kia4` text NOT NULL,
-  `id_penduduk` int(11) NOT NULL,
-  `id_aktalahir` int(11) NOT NULL,
-  `id_ayah` int(11) NOT NULL,
-  `id_ibu` int(11) NOT NULL,
-  `id_pemohon` int(11) NOT NULL
+  `agama_kia` varchar(16) COLLATE utf8mb4_general_ci NOT NULL,
+  `warganegara` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
+  `image_kia1` text COLLATE utf8mb4_general_ci NOT NULL,
+  `image_kia2` text COLLATE utf8mb4_general_ci NOT NULL,
+  `image_kia3` text COLLATE utf8mb4_general_ci NOT NULL,
+  `image_kia4` text COLLATE utf8mb4_general_ci NOT NULL,
+  `id_penduduk` int NOT NULL,
+  `id_aktalahir` int NOT NULL,
+  `id_ayah` int NOT NULL,
+  `id_ibu` int NOT NULL,
+  `id_pemohon` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -234,13 +234,13 @@ INSERT INTO `tbl_kia` (`id_kia`, `nik_kia`, `tgl_input_kia`, `agama_kia`, `warga
 --
 
 CREATE TABLE `tbl_kk` (
-  `id_kk` int(11) NOT NULL,
+  `id_kk` int NOT NULL,
   `tgl_input_kk` date NOT NULL,
-  `id_penduduk` int(11) NOT NULL,
-  `Kepala_keluarga` varchar(50) NOT NULL,
-  `imagekk1` text NOT NULL,
-  `imagekk2` text NOT NULL,
-  `imagekk3` text NOT NULL
+  `id_penduduk` int NOT NULL,
+  `Kepala_keluarga` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `imagekk1` text COLLATE utf8mb4_general_ci NOT NULL,
+  `imagekk2` text COLLATE utf8mb4_general_ci NOT NULL,
+  `imagekk3` text COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -267,11 +267,11 @@ INSERT INTO `tbl_kk` (`id_kk`, `tgl_input_kk`, `id_penduduk`, `Kepala_keluarga`,
 --
 
 CREATE TABLE `tbl_ktp` (
-  `id_ktp` int(11) NOT NULL,
+  `id_ktp` int NOT NULL,
   `tgl_input_ktp` date NOT NULL,
-  `negara_ktp` varchar(30) NOT NULL,
-  `id_penduduk` int(11) NOT NULL,
-  `imagektp` text NOT NULL
+  `negara_ktp` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
+  `id_penduduk` int NOT NULL,
+  `imagektp` text COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -298,13 +298,13 @@ INSERT INTO `tbl_ktp` (`id_ktp`, `tgl_input_ktp`, `negara_ktp`, `id_penduduk`, `
 --
 
 CREATE TABLE `tbl_menu` (
-  `id_menu` int(11) NOT NULL,
+  `id_menu` int NOT NULL,
   `title` varchar(50) NOT NULL,
   `url` varchar(30) NOT NULL,
   `icon` varchar(30) NOT NULL,
-  `is_main_menu` int(11) NOT NULL,
+  `is_main_menu` int NOT NULL,
   `is_aktif` enum('y','n') NOT NULL COMMENT 'y=yes,n=no'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_menu`
@@ -340,25 +340,25 @@ INSERT INTO `tbl_menu` (`id_menu`, `title`, `url`, `icon`, `is_main_menu`, `is_a
 --
 
 CREATE TABLE `tbl_perceraian` (
-  `id_perceraian` int(11) NOT NULL,
+  `id_perceraian` int NOT NULL,
   `tgl_input_cerai` date NOT NULL,
-  `ayah_laki` varchar(50) NOT NULL,
-  `ibu_laki` varchar(50) NOT NULL,
-  `ayah_wanita` varchar(50) NOT NULL,
-  `ibu_wanita` varchar(50) NOT NULL,
+  `ayah_laki` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `ibu_laki` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `ayah_wanita` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `ibu_wanita` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
   `tgl_perkawinan` date NOT NULL,
   `tgl_perceraian` date NOT NULL,
-  `penyebab_cerai` varchar(50) NOT NULL,
-  `id_penduduk` int(11) NOT NULL,
-  `negara_laki` varchar(50) NOT NULL,
-  `negara_istri` varchar(50) NOT NULL,
-  `imagecerai1` text NOT NULL,
-  `imagecerai2` text NOT NULL,
-  `imagecerai3` text NOT NULL,
-  `id_cerai_suami` int(11) NOT NULL,
-  `id_cerai_istri` int(11) NOT NULL,
-  `id_nik_suami` int(11) NOT NULL,
-  `id_nik_istri` int(11) NOT NULL
+  `penyebab_cerai` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `id_penduduk` int NOT NULL,
+  `negara_laki` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `negara_istri` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `imagecerai1` text COLLATE utf8mb4_general_ci NOT NULL,
+  `imagecerai2` text COLLATE utf8mb4_general_ci NOT NULL,
+  `imagecerai3` text COLLATE utf8mb4_general_ci NOT NULL,
+  `id_cerai_suami` int NOT NULL,
+  `id_cerai_istri` int NOT NULL,
+  `id_nik_suami` int NOT NULL,
+  `id_nik_istri` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -385,32 +385,35 @@ INSERT INTO `tbl_perceraian` (`id_perceraian`, `tgl_input_cerai`, `ayah_laki`, `
 --
 
 CREATE TABLE `tbl_pindah` (
-  `id_pindah` int(11) NOT NULL,
+  `id_pindah` int NOT NULL,
   `tgl_input_pindah` date NOT NULL,
-  `klasifikasi_pindah` varchar(30) NOT NULL,
-  `alamat_pindah` varchar(50) NOT NULL,
-  `alasan_pindah` varchar(30) NOT NULL,
-  `imagepindah1` text NOT NULL,
-  `imagepindah2` text NOT NULL,
-  `id_penduduk` int(11) NOT NULL
+  `klasifikasi_pindah` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
+  `alamat_pindah` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `alasan_pindah` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
+  `imagepindah1` text COLLATE utf8mb4_general_ci NOT NULL,
+  `imagepindah2` text COLLATE utf8mb4_general_ci NOT NULL,
+  `id_penduduk` int NOT NULL,
+  `id_users` int NOT NULL,
+  `status` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `keterangan` varchar(250) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_pindah`
 --
 
-INSERT INTO `tbl_pindah` (`id_pindah`, `tgl_input_pindah`, `klasifikasi_pindah`, `alamat_pindah`, `alasan_pindah`, `imagepindah1`, `imagepindah2`, `id_penduduk`) VALUES
-(3, '2023-07-27', 'Antar Kecamatan', 'Jl.HKSN', 'Pendidikan', '12.jpeg', '13.jpeg', 2),
-(5, '2022-02-01', 'Antar Kecamatan', 'JL.Pasar lama Basirih Banjarmasin Tengah', 'Pekerjaan', 'KK.jpeg', 'ktp.jpeg', 11),
-(6, '2023-10-10', 'Antar Kab/Kota', 'Jl.Sungai Lulut Komp.Madanii Banjarmasin Utara', 'Pendidikan', 'Kartu_keluarga.jpeg', 'ktp1.jpeg', 3),
-(7, '2021-12-29', 'Antar Provinsi', 'Palangka Raya Kec.Jekan Raya Kalteng', 'Pekerjaan', 'Kartu_keluarga1.jpeg', 'ktp2.jpeg', 12),
-(8, '2020-12-12', 'Antar Kab/Kota', 'Jl.Adhyaksa Banjarmasin Barat', 'Pekerjaan', 'Kartu_keluarga2.jpeg', 'ktp3.jpeg', 9),
-(9, '2023-07-10', 'Antar Kecamatan', 'Jl.Sungai Bilu Banjarmasin Utara', 'Pendidikan', 'akta_lahir.jpeg', 'ktp4.jpeg', 13),
-(10, '2023-09-27', 'Antar Kab/Kota', 'Jl.Sungai Lulut Komp.Madani Banjarmasin Utara', 'Pendidikan', 'Kartu_keluarga3.jpeg', 'ktp5.jpeg', 7),
-(11, '2023-04-16', 'Antar Kab/Kota', 'Jl.Sultan Adam GG.Damai Banjarmasin Utara', 'Pendidikan', 'KK1.jpeg', 'ktp_ayah.jpeg', 14),
-(12, '2023-12-12', 'Antar Kab/Kota', 'Jl.Pemanjatan Gambut Kab.Banjar', 'Pekerjaan', 'KK2.jpeg', 'ktp6.jpeg', 4),
-(13, '2022-10-23', 'Antar Kecamatan', 'Jl.Sultan Adam GG.Damai Banjarmasin Utara', 'Pendidikan', 'KK3.jpeg', 'ktp7.jpeg', 15),
-(14, '2023-12-09', 'Antar Kab/Kota', 'Jl.Guntung Manggis  Landasan Ulin Banjarbaru', 'Pekerjaan', 'KK5.jpeg', 'ktp9.jpeg', 16);
+INSERT INTO `tbl_pindah` (`id_pindah`, `tgl_input_pindah`, `klasifikasi_pindah`, `alamat_pindah`, `alasan_pindah`, `imagepindah1`, `imagepindah2`, `id_penduduk`, `id_users`, `status`, `keterangan`) VALUES
+(3, '2023-07-27', 'Antar Kecamatan', 'Jl.HKSN', 'Pendidikan', '12.jpeg', '13.jpeg', 2, 11, 'Belum Disetujui', ''),
+(5, '2022-02-01', 'Antar Kecamatan', 'JL.Pasar lama Basirih Banjarmasin Tengah', 'Pekerjaan', 'KK.jpeg', 'ktp.jpeg', 11, 12, 'Belum Disetujui', ''),
+(6, '2023-10-10', 'Antar Kab/Kota', 'Jl.Sungai Lulut Komp.Madanii Banjarmasin Utara', 'Pendidikan', 'Kartu_keluarga.jpeg', 'ktp1.jpeg', 3, 13, 'Belum Disetujui', ''),
+(7, '2021-12-29', 'Antar Provinsi', 'Palangka Raya Kec.Jekan Raya Kalteng', 'Pekerjaan', 'Kartu_keluarga1.jpeg', 'ktp2.jpeg', 12, 11, 'Belum Disetujui', ''),
+(8, '2020-12-12', 'Antar Kab/Kota', 'Jl.Adhyaksa Banjarmasin Barat', 'Pekerjaan', 'Kartu_keluarga2.jpeg', 'ktp3.jpeg', 9, 12, 'Belum Disetujui', ''),
+(9, '2023-07-10', 'Antar Kecamatan', 'Jl.Sungai Bilu Banjarmasin Utara', 'Pendidikan', 'akta_lahir.jpeg', 'ktp4.jpeg', 13, 14, 'Belum Disetujui', ''),
+(10, '2023-09-27', 'Antar Kab/Kota', 'Jl.Sungai Lulut Komp.Madani Banjarmasin Utara', 'Pendidikan', 'Kartu_keluarga3.jpeg', 'ktp5.jpeg', 7, 15, 'Belum Disetujui', ''),
+(11, '2023-04-16', 'Antar Kab/Kota', 'Jl.Sultan Adam GG.Damai Banjarmasin Utara', 'Pendidikan', 'KK1.jpeg', 'ktp_ayah.jpeg', 14, 14, 'Belum Disetujui', ''),
+(12, '2023-12-12', 'Antar Kab/Kota', 'Jl.Pemanjatan Gambut Kab.Banjar', 'Pekerjaan', 'KK2.jpeg', 'ktp6.jpeg', 4, 11, 'Belum Disetujui', ''),
+(13, '2022-10-23', 'Antar Kecamatan', 'Jl.Sultan Adam GG.Damai Banjarmasin Utara', 'Pendidikan', 'KK3.jpeg', 'ktp7.jpeg', 15, 12, 'Belum Disetujui', ''),
+(14, '2023-12-09', 'Antar Kab/Kota', 'Jl.Guntung Manggis  Landasan Ulin Banjarbaru', 'Pekerjaan', 'KK5.jpeg', 'ktp9.jpeg', 16, 15, 'Disetujui', 'Baik');
 
 -- --------------------------------------------------------
 
@@ -419,10 +422,10 @@ INSERT INTO `tbl_pindah` (`id_pindah`, `tgl_input_pindah`, `klasifikasi_pindah`,
 --
 
 CREATE TABLE `tbl_setting` (
-  `id_setting` int(11) NOT NULL,
+  `id_setting` int NOT NULL,
   `nama_setting` varchar(50) NOT NULL,
   `value` varchar(40) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_setting`
@@ -438,32 +441,36 @@ INSERT INTO `tbl_setting` (`id_setting`, `nama_setting`, `value`) VALUES
 --
 
 CREATE TABLE `tbl_skts` (
-  `id_skts` int(11) NOT NULL,
+  `id_skts` int NOT NULL,
   `tgl_input_skts` date NOT NULL,
-  `keperluan` varchar(20) NOT NULL,
-  `alamat_sementara` varchar(50) NOT NULL,
-  `imageskts1` text NOT NULL,
-  `imageskts2` text NOT NULL,
-  `imageskts3` text NOT NULL,
-  `id_penduduk` int(11) NOT NULL
+  `keperluan` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
+  `alamat_sementara` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `imageskts1` text COLLATE utf8mb4_general_ci NOT NULL,
+  `imageskts2` text COLLATE utf8mb4_general_ci NOT NULL,
+  `imageskts3` text COLLATE utf8mb4_general_ci NOT NULL,
+  `id_penduduk` int NOT NULL,
+  `id_users` int NOT NULL,
+  `status` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `keterangan` varchar(250) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_skts`
 --
 
-INSERT INTO `tbl_skts` (`id_skts`, `tgl_input_skts`, `keperluan`, `alamat_sementara`, `imageskts1`, `imageskts2`, `imageskts3`, `id_penduduk`) VALUES
-(2, '2023-07-27', 'Pendidikan', 'Jl.HKSN', '1.jpeg', '11.jpeg', '12.jpeg', 2),
-(7, '2023-05-04', 'Pendidikan', 'Jl.Kayutangi Ujung Banjarmasin Utara', 'Surat_pengantar_RT3.jpeg', 'ktp3.jpeg', 'Kartu_keluarga.jpeg', 16),
-(8, '2023-06-05', 'Pendidikan', 'Jl.Zapri Zam-Zam Kuin Cerucuk banjarmasin barat', 'Surat_pengantar_RT4.jpeg', 'ktp4.jpeg', 'Kartu_keluarga1.jpeg', 8),
-(11, '2023-01-01', 'pekerjaan', 'Jl.lambung mangkurat Komp.indah Banjarmasin Barat', 'Surat_pengantar_RT7.jpeg', 'Kartu_keluarga3.jpeg', 'KK3.jpeg', 7),
-(12, '2022-10-10', 'pekerjaan', 'Jl.Sungai Lulut Komp.Permai Banjarmasin Selatan', 'Surat_pengantar_RT8.jpeg', 'ktp7.jpeg', 'KK4.jpeg', 9),
-(14, '2023-12-12', 'Pendidikan', 'Jl.lambung mangkurat Banjarmasin barat', 'Surat_pengantar_RT10.jpeg', 'ktp9.jpeg', 'KK6.jpeg', 14),
-(15, '2023-10-01', 'pekerjaan', 'Jl.Pandjaitan  Basirih Banjarmasin Selatan', '', '', '', 19),
-(16, '2023-10-28', 'Pendidikan', 'Jl.Adhyaksa Komp.Melati banjarmasin Utara', '', '', '', 18),
-(17, '2022-09-12', 'Pendidikan', 'Jl.Adhyaksa Komp.Melati banjarmasin Utara', '', '', '', 17),
-(18, '2022-12-19', 'Pendidikan', 'Jl.Adhyaksa Komp.Melati banjarmasin Utara', '', '', '', 21),
-(19, '2023-11-10', 'Pendidikan', 'Jl.lambung mangkurat Banjarmasin barat', '', '', '', 20);
+INSERT INTO `tbl_skts` (`id_skts`, `tgl_input_skts`, `keperluan`, `alamat_sementara`, `imageskts1`, `imageskts2`, `imageskts3`, `id_penduduk`, `id_users`, `status`, `keterangan`) VALUES
+(2, '2023-07-27', 'Pendidikan', 'Jl.HKSN', '1.jpeg', '11.jpeg', '12.jpeg', 2, 11, 'Belum Disetujui', ''),
+(7, '2023-05-04', 'Pendidikan', 'Jl.Kayutangi Ujung Banjarmasin Utara', 'Surat_pengantar_RT3.jpeg', 'ktp3.jpeg', 'Kartu_keluarga.jpeg', 16, 12, 'Belum Disetujui', ''),
+(8, '2023-06-05', 'Pendidikan', 'Jl.Zapri Zam-Zam Kuin Cerucuk banjarmasin barat', 'Surat_pengantar_RT4.jpeg', 'ktp4.jpeg', 'Kartu_keluarga1.jpeg', 8, 13, 'Belum Disetujui', ''),
+(11, '2023-01-01', 'pekerjaan', 'Jl.lambung mangkurat Komp.indah Banjarmasin Barat', 'Surat_pengantar_RT7.jpeg', 'Kartu_keluarga3.jpeg', 'KK3.jpeg', 7, 14, 'Belum Disetujui', ''),
+(12, '2022-10-10', 'pekerjaan', 'Jl.Sungai Lulut Komp.Permai Banjarmasin Selatan', 'Surat_pengantar_RT8.jpeg', 'ktp7.jpeg', 'KK4.jpeg', 9, 15, 'Belum Disetujui', ''),
+(14, '2023-12-12', 'Pendidikan', 'Jl.lambung mangkurat Banjarmasin barat', 'Surat_pengantar_RT10.jpeg', 'ktp9.jpeg', 'KK6.jpeg', 14, 11, 'Belum Disetujui', ''),
+(15, '2023-10-01', 'pekerjaan', 'Jl.Pandjaitan  Basirih Banjarmasin Selatan', '', '', '', 19, 12, 'Belum Disetujui', ''),
+(16, '2023-10-28', 'Pendidikan', 'Jl.Adhyaksa Komp.Melati banjarmasin Utara', '', '', '', 18, 13, 'Belum Disetujui', ''),
+(17, '2022-09-12', 'Pendidikan', 'Jl.Adhyaksa Komp.Melati banjarmasin Utara', '', '', '', 17, 14, 'Belum Disetujui', ''),
+(18, '2022-12-19', 'Pendidikan', 'Jl.Adhyaksa Komp.Melati banjarmasin Utara', '', '', '', 21, 15, 'Belum Disetujui', ''),
+(19, '2023-11-10', 'Pendidikan', 'Jl.lambung mangkurat Banjarmasin barat', '', '', '', 20, 11, 'Disetujui', 'OK aman'),
+(20, '2024-08-14', 'Kerja', 'JL. MANGGA III KOMP AR RAHIM NO. 80', 'qr-code.png', '325990687_1205742563372943_3154194457402214232_n.jpg', 'Screenshot_2024-08-09_145456-removebg-preview.png', 7, 19, 'Belum Disetujui', '-');
 
 -- --------------------------------------------------------
 
@@ -472,7 +479,7 @@ INSERT INTO `tbl_skts` (`id_skts`, `tgl_input_skts`, `keperluan`, `alamat_sement
 --
 
 CREATE TABLE `tbl_user` (
-  `id_users` int(11) NOT NULL,
+  `id_users` int NOT NULL,
   `nik_user` varchar(16) NOT NULL,
   `no_kk_user` varchar(16) NOT NULL,
   `full_name` varchar(50) NOT NULL,
@@ -484,9 +491,9 @@ CREATE TABLE `tbl_user` (
   `email` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
   `images` text NOT NULL,
-  `id_user_level` int(11) NOT NULL,
+  `id_user_level` int NOT NULL,
   `is_aktif` enum('y','n') NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_user`
@@ -506,7 +513,8 @@ INSERT INTO `tbl_user` (`id_users`, `nik_user`, `no_kk_user`, `full_name`, `jeni
 (15, '6304050041000011', '6304054010010003', 'Ranti dahlia', 'Perempuan', 'Handil Bakti', '2023-08-02', 'jl.handil bakti rt/rw 002/001 ', '087844302821', 'rantidahlia75@gmail.com', '$2y$04$nSeHaN33flwpTLnVDPHEluZoSW7u3jQ3LKpG.RLptd9rw/Q7gb1em', '', 2, 'y'),
 (16, '6304050041000011', '6304054010010003', 'Ranti dahlia', 'Perempuan', 'Handil Bakti', '2024-07-30', 'jl.handil bakti rt/rw 002/001 ', '087844302821', 'ranti@gmail.com', '$2y$04$vqE5j5oxTKSlRGrI9B8Ms.S13K2z792iuc0qfXgYCdoeWUmLwCSCe', '', 2, 'y'),
 (17, '6304050041000011', '6304054010010003', 'Ranti dahlia', 'Perempuan', 'Handil Bakti', '2024-08-04', 'jl.handil bakti rt/rw 002/001 ', '087844302821', 'ranti@gmail.com', '$2y$04$HIfopXN.QoMXC8Dc2sfaOe5VRM7aOcSXc8uhQm6AHVgJpOTMcZ1RS', '', 2, 'y'),
-(18, '6304050041000011', '6304054010010003', 'Ranti dahlia', 'Perempuan', 'Handil Bakti', '2024-08-04', 'jl.handil bakti rt/rw 002/001 ', '087844302821', 'ranti@gmail.com', '$2y$04$ru1vPhRjaKodIniJKfhnXe6mJLKqvNKeRDe8hRjb58AsCw9Miat.2', '', 1, 'y');
+(18, '6304050041000011', '6304054010010003', 'Ranti dahlia', 'Perempuan', 'Handil Bakti', '2024-08-04', 'jl.handil bakti rt/rw 002/001 ', '087844302821', 'ranti@gmail.com', '$2y$04$ru1vPhRjaKodIniJKfhnXe6mJLKqvNKeRDe8hRjb58AsCw9Miat.2', '', 1, 'y'),
+(19, '6371020412310', '6371231203210', 'faisal', 'Laki-laki', 'Banjaramsin', '1990-02-04', 'JL. MANGGA III KOMP AR RAHIM N', '0821321321', 'faizal@gmail.com', '$2y$04$ohXnOxzMCS9Chne08kJfMezBIN.qYqrWb69PJgaVQMGvTNjejvl/6', '', 2, 'y');
 
 -- --------------------------------------------------------
 
@@ -515,9 +523,9 @@ INSERT INTO `tbl_user` (`id_users`, `nik_user`, `no_kk_user`, `full_name`, `jeni
 --
 
 CREATE TABLE `tbl_user_level` (
-  `id_user_level` int(11) NOT NULL,
+  `id_user_level` int NOT NULL,
   `nama_level` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_user_level`
@@ -623,85 +631,85 @@ ALTER TABLE `tbl_user_level`
 -- AUTO_INCREMENT for table `dt_penduduk`
 --
 ALTER TABLE `dt_penduduk`
-  MODIFY `id_penduduk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id_penduduk` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `tbl_aktalahir`
 --
 ALTER TABLE `tbl_aktalahir`
-  MODIFY `id_aktalahir` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id_aktalahir` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `tbl_hak_akses`
 --
 ALTER TABLE `tbl_hak_akses`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `tbl_kematian`
 --
 ALTER TABLE `tbl_kematian`
-  MODIFY `id_kematian` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id_kematian` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `tbl_kia`
 --
 ALTER TABLE `tbl_kia`
-  MODIFY `id_kia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id_kia` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `tbl_kk`
 --
 ALTER TABLE `tbl_kk`
-  MODIFY `id_kk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_kk` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `tbl_ktp`
 --
 ALTER TABLE `tbl_ktp`
-  MODIFY `id_ktp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_ktp` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `tbl_menu`
 --
 ALTER TABLE `tbl_menu`
-  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=226;
+  MODIFY `id_menu` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=226;
 
 --
 -- AUTO_INCREMENT for table `tbl_perceraian`
 --
 ALTER TABLE `tbl_perceraian`
-  MODIFY `id_perceraian` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_perceraian` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `tbl_pindah`
 --
 ALTER TABLE `tbl_pindah`
-  MODIFY `id_pindah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_pindah` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `tbl_setting`
 --
 ALTER TABLE `tbl_setting`
-  MODIFY `id_setting` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_setting` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tbl_skts`
 --
 ALTER TABLE `tbl_skts`
-  MODIFY `id_skts` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_skts` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `id_users` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_users` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `tbl_user_level`
 --
 ALTER TABLE `tbl_user_level`
-  MODIFY `id_user_level` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_user_level` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

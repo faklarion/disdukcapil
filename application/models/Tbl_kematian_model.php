@@ -24,7 +24,8 @@ class Tbl_kematian_model extends CI_Model
         $this->datatables->join('dt_penduduk a', 'tbl_kematian.si_pemohon = a.id_penduduk', 'LEFT');
         $this->datatables->join('dt_penduduk b', 'tbl_kematian.id_meninggal = b.id_penduduk', 'LEFT');
         
-        $this->datatables->add_column('action', anchor(site_url('tbl_kematian/update/$1'),'<i class="fa fa-pencil-square-o" aria-hidden="true"></i>', array('class' => 'btn btn-danger btn-sm'))." 
+        $this->datatables->add_column('action', anchor(site_url('tbl_kematian/read/$1'),'<i class="fa fa-print" aria-hidden="true"></i>', array('class' => 'btn btn-danger btn-sm'))."  
+        ".anchor(site_url('tbl_kematian/update/$1'),'<i class="fa fa-pencil-square-o" aria-hidden="true"></i>', array('class' => 'btn btn-danger btn-sm'))." 
                 ".anchor(site_url('tbl_kematian/delete/$1'),'<i class="fa fa-trash-o" aria-hidden="true"></i>','class="btn btn-danger btn-sm" onclick="javasciprt: return confirm(\'Are You Sure ?\')"'), 'id_kematian');
         return $this->datatables->generate();
     }
@@ -42,7 +43,7 @@ class Tbl_kematian_model extends CI_Model
 
     function get_all_bulan($bulan,$tahun)
     {
-        $this->db->select('id_kematian,a.nama as pemohon, b.nama as meninggal,tgl_input_kematian,tgl_kematian,penyebab_kematian,tempat_kematian,imagekematian1,imagekematian2,imagekematian3,imagekematian4,si_pemohon,id_meninggal,dt_penduduk.id_penduduk,dt_penduduk.nama,dt_penduduk.no_kk,dt_penduduk.tgl_lahir,dt_penduduk.tempat_lahir,dt_penduduk.jenis_kelamin,dt_penduduk.alamat,dt_penduduk.agama,dt_penduduk.pekerjaan,dt_penduduk.nik');
+        $this->db->select('id_kematian,a.nama as pemohon, b.nama as meninggal, tgl_input_kematian,tgl_kematian,penyebab_kematian,tempat_kematian,imagekematian1,imagekematian2,imagekematian3,imagekematian4,si_pemohon,id_meninggal,dt_penduduk.id_penduduk,dt_penduduk.nama,dt_penduduk.no_kk,dt_penduduk.tgl_lahir,dt_penduduk.tempat_lahir,dt_penduduk.jenis_kelamin,dt_penduduk.alamat,dt_penduduk.agama,dt_penduduk.pekerjaan,dt_penduduk.nik');
         $this->db->join('dt_penduduk', 'tbl_kematian.id_penduduk = dt_penduduk.id_penduduk');
         $this->db->join('dt_penduduk a', 'tbl_kematian.si_pemohon = a.id_penduduk', 'LEFT');
         $this->db->join('dt_penduduk b', 'tbl_kematian.id_meninggal = b.id_penduduk', 'LEFT');
@@ -56,8 +57,12 @@ class Tbl_kematian_model extends CI_Model
     // get data by id
     function get_by_id($id)
     {
-        $this->datatables->select('id_kematian,tgl_input_kematian,tgl_kematian,penyebab_kematian,tempat_kematian,imagekematian1,imagekematian2,imagekematian3,imagekematian4,dt_penduduk.id_penduduk,nama,no_kk,tgl_lahir,tempat_lahir,jenis_kelamin,alamat,agama,pekerjaan');
-        $this->datatables->join('dt_penduduk', 'tbl_kematian.id_penduduk = dt_penduduk.id_penduduk');
+        $this->db->select('id_kematian,a.nama as pemohon, b.nama as meninggal,tgl_input_kematian,tgl_kematian,penyebab_kematian,tempat_kematian,imagekematian1,imagekematian2,imagekematian3,imagekematian4,si_pemohon,id_meninggal,dt_penduduk.id_penduduk,dt_penduduk.nama,dt_penduduk.no_kk,dt_penduduk.tgl_lahir,dt_penduduk.tempat_lahir,dt_penduduk.jenis_kelamin,dt_penduduk.alamat,dt_penduduk.agama,dt_penduduk.pekerjaan');
+    
+        //add this line for join
+        $this->db->join('dt_penduduk', 'tbl_kematian.id_penduduk = dt_penduduk.id_penduduk');
+        $this->db->join('dt_penduduk a', 'tbl_kematian.si_pemohon = a.id_penduduk', 'LEFT');
+        $this->db->join('dt_penduduk b', 'tbl_kematian.id_meninggal = b.id_penduduk', 'LEFT');
         $this->db->where($this->id, $id);
         return $this->db->get($this->table)->row();
     }

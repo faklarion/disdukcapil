@@ -12,7 +12,7 @@ class Tbl_perceraian extends CI_Controller
         $this->load->model('Tbl_perceraian_model');
         $this->load->model('Dt_penduduk_model');
         $this->load->library('form_validation');        
-	$this->load->library('datatables');
+	    $this->load->library('datatables');
     }
 
     public function index()
@@ -30,23 +30,9 @@ class Tbl_perceraian extends CI_Controller
         $row = $this->Tbl_perceraian_model->get_by_id($id);
         if ($row) {
             $data = array(
-		'id_perceraian' => $row->id_perceraian,
-		'tgl_input_cerai' => $row->tgl_input_cerai,
-		'ayah_laki' => $row->ayah_laki,
-		'ibu_laki' => $row->ibu_laki,
-		'ayah_wanita' => $row->ayah_wanita,
-		'ibu_wanita' => $row->ibu_wanita,
-		'tgl_perkawinan' => $row->tgl_perkawinan,
-		'tgl_perceraian' => $row->tgl_perceraian,
-		'penyebab_cerai' => $row->penyebab_cerai,
-		'id_penduduk' => $row->id_penduduk,
-		'negara_laki' => $row->negara_laki,
-		'negara_istri' => $row->negara_istri,
-		'imagecerai1' => $row->imagecerai1,
-		'imagecerai2' => $row->imagecerai2,
-		'imagecerai3' => $row->imagecerai3,
+		    'data_perceraian' => $row,
 	    );
-            $this->template->load('template','tbl_perceraian/tbl_perceraian_read', $data);
+            $this->load->View('tbl_perceraian/tbl_perceraian_read', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
             redirect(site_url('tbl_perceraian'));

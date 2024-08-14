@@ -142,9 +142,9 @@
     <p>>> Update data online (BPJS,PERBANKAN, dll)<span style="display: inline-block; width: 92px;"></span> : 0878 4168 6053</li>
     </div>
     </div>
-        <div class="alert">
+        <!-- <div class="alert">
             <h4 align="center" class="custom-text"><u><strong>Persyaratan Penerbitan Dokumen Kependudukan</strong></u></h4>
-            <!-- New horizontal layout --><br>
+            <br>
             <div class="horizontal-mading">
                 <div class="mading-item">
                     <h4>Akta Kelahiran</h4>
@@ -281,8 +281,8 @@
                     </ul>
                 </div>
             </div>
-            <!-- Add more horizontal sections here -->
-        </div>
+            
+        </div> -->
 
        
 </body>

@@ -56,38 +56,38 @@
             <thead>
                 <tr>
                     <th width="30px">No</th>
-		    <th>Tanggal Terbit</th>
-            <th>NIK</th>
-            <th>No KK</th>
-            <th>Nama</th>
-            <th>Tempat Lahir</th>
-            <th>Tanggal Lahir</th>
-            <th>Agama</th>
-            <th>Pekerjaan</th>
-            <th>Pendidikan</th>
-            <th>Kewarganegaraan</th>
-		    <th>Ayah Laki</th>
-		    <th>Ibu Laki</th>
-            <th>Alamat</th>
-            <th>NIK</th>
-            <th>No KK</th>
-            <th>Nama</th>
-            <th>Tempat Lahir</th>
-            <th>Tanggal Lahir</th>
-            <th>Agama</th>
-            <th>Pekerjaan</th>
-            <th>Pendidikan</th>
-            <th>Kewarganegaraan</th>
-		    <th>Ayah Wanita</th>
-		    <th>Ibu Wanita</th>
-            <th>Alamat</th>
-		    <th>Tgl Perkawinan</th>
-		    <th>Tgl Perceraian</th>
-		    <th>Penyebab Cerai</th>
-		    <th>FC Putusan Pengadilan Negara</th>
-		    <th>FC KTP dan KK</th>
-		    <th>Kutipan Akta Nikah Asli</th>
-		    <th width="200px">Action</th>
+                    <th>Tanggal Terbit</th>
+                    <th>NIK</th>
+                    <th>No KK</th>
+                    <th>Nama</th>
+                    <th>Tempat Lahir</th>
+                    <th>Tanggal Lahir</th>
+                    <th>Agama</th>
+                    <th>Pekerjaan</th>
+                    <th>Pendidikan</th>
+                    <th>Kewarganegaraan</th>
+                    <th>Ayah Laki</th>
+                    <th>Ibu Laki</th>
+                    <th>Alamat</th>
+                    <th>NIK</th>
+                    <th>No KK</th>
+                    <th>Nama</th>
+                    <th>Tempat Lahir</th>
+                    <th>Tanggal Lahir</th>
+                    <th>Agama</th>
+                    <th>Pekerjaan</th>
+                    <th>Pendidikan</th>
+                    <th>Kewarganegaraan</th>
+                    <th>Ayah Wanita</th>
+                    <th>Ibu Wanita</th>
+                    <th>Alamat</th>
+                    <th>Tgl Perkawinan</th>
+                    <th>Tgl Perceraian</th>
+                    <th>Penyebab Cerai</th>
+                    <th>FC Putusan Pengadilan Negara</th>
+                    <th>FC KTP dan KK</th>
+                    <th>Kutipan Akta Nikah Asli</th>
+                    <th width="200px">Action</th>
                 </tr>
             </thead>
 	    

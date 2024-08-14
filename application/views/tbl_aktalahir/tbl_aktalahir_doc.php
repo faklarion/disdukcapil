@@ -116,15 +116,14 @@ function tgl_indo($tanggal)
             ?>
         </table>
         <div style="text-align: center; display: inline-block; float: right;">
-        <h5 align="left">Mengetahui,</h5>
-        <h5>
-            Banjarmasin, <?= tgl_indo(date('Y-m-d')); ?>
-            <h5>KEPALA DINAS</h5>
-            <br><br><br><br>
-            <u>YUSNA IRAWAN, SE, M.Eng</u>
-            <div>NIP. 197212222000031004</div>
-        </h5>
-
-    </div>
+            <h5 align="left">Mengetahui,</h5>
+            <h5>
+                Banjarmasin, <?= tgl_indo(date('Y-m-d')); ?>
+                <h5>KEPALA DINAS</h5>
+                <br><br><br><br>
+                <u>YUSNA IRAWAN, SE, M.Eng</u>
+                <div>NIP. 197212222000031004</div>
+            </h5>
+        </div>
     </body>
 </html>

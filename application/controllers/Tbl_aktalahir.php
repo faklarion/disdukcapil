@@ -30,20 +30,9 @@ class Tbl_aktalahir extends CI_Controller
         $row = $this->Tbl_aktalahir_model->get_by_id($id);
         if ($row) {
             $data = array(
-		'id_aktalahir' => $row->id_aktalahir,
-		'tgl_input' => $row->tgl_input,
-		'no_akta' => $row->no_akta,
-		'nama_bayi' => $row->nama_bayi,
-		'jenis_kelamin_bayi' => $row->jenis_kelamin_bayi,
-		'tempat_lahir_bayi' => $row->tempat_lahir_bayi,
-		'tgl_lahir_bayi' => $row->tgl_lahir_bayi,
-		'jam' => $row->jam,
-		'berat_bayi' => $row->berat_bayi,
-		'kelahiran_ke' => $row->kelahiran_ke,
-		'penolong_kelahiran' => $row->penolong_kelahiran,
-		'id_penduduk' => $row->id_penduduk,
+		        'data_akta' => $row,
 	    );
-            $this->template->load('template','tbl_aktalahir/tbl_aktalahir_read', $data);
+            $this->load->view('tbl_aktalahir/tbl_aktalahir_read', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
             redirect(site_url('tbl_aktalahir'));

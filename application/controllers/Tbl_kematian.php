@@ -30,18 +30,9 @@ class Tbl_kematian extends CI_Controller
         $row = $this->Tbl_kematian_model->get_by_id($id);
         if ($row) {
             $data = array(
-		'id_kematian' => $row->id_kematian,
-		'tgl_input_kematian' => $row->tgl_input_kematian,
-		'tgl_kematian' => $row->tgl_kematian,
-		'penyebab_kematian' => $row->penyebab_kematian,
-		'tempat_kematian' => $row->tempat_kematian,
-		'imagekematian1' => $row->imagekematian1,
-		'imagekematian2' => $row->imagekematian2,
-		'imagekematian3' => $row->imagekematian3,
-		'imagekematian4' => $row->imagekematian4,
-		'id_penduduk' => $row->id_penduduk,
+            'data_kematian' => $row,
 	    );
-            $this->template->load('template','tbl_kematian/tbl_kematian_read', $data);
+            $this->load->View('tbl_kematian/tbl_kematian_read', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
             redirect(site_url('tbl_kematian'));

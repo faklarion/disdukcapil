@@ -23,7 +23,8 @@ class Tbl_aktalahir_model extends CI_Model
         $this->datatables->join('dt_penduduk', 'tbl_aktalahir.id_penduduk = dt_penduduk.id_penduduk');
         $this->datatables->join('dt_penduduk a', 'tbl_aktalahir.id_papa = a.id_penduduk', 'LEFT');
         $this->datatables->join('dt_penduduk b', 'tbl_aktalahir.id_mama = b.id_penduduk', 'LEFT');
-        $this->datatables->add_column('action', anchor(site_url('tbl_aktalahir/update/$1'),'<i class="fa fa-pencil-square-o" aria-hidden="true"></i>', array('class' => 'btn btn-danger btn-sm'))." 
+        $this->datatables->add_column('action', anchor(site_url('tbl_aktalahir/read/$1'),'<i class="fa fa-print" aria-hidden="true"></i>', array('class' => 'btn btn-danger btn-sm'))." 
+            ". anchor(site_url('tbl_aktalahir/update/$1'),'<i class="fa fa-pencil-square-o" aria-hidden="true"></i>', array('class' => 'btn btn-danger btn-sm'))." 
                 ".anchor(site_url('tbl_aktalahir/delete/$1'),'<i class="fa fa-trash-o" aria-hidden="true"></i>','class="btn btn-danger btn-sm" onclick="javasciprt: return confirm(\'Are You Sure ?\')"'), 'id_aktalahir');
         return $this->datatables->generate();
     }

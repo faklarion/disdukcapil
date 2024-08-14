@@ -45,7 +45,8 @@
                             <thead>
                                 <tr>
                                     <th width="30px">No</th>
-                                    <th>Tanggal Input Skts</th>
+                                    <th>Tanggal Input SKTS</th>
+                                    <th>Nama Pengaju</th>
                                     <th>Nama</th>
                                     <th>NIK</th>
                                     <th>No KK</th>
@@ -110,7 +111,7 @@
                 {
                     "data": "id_skts",
                     "orderable": false
-                }, { "data": "tgl_input_skts" }, { "data": "nama" }, { "data": "nik" }, { "data": "no_kk" }, { "data": "jenis_kelamin" }, { "data": "tempat_lahir" }, { "data": "tgl_lahir" }, { "data": "pekerjaan" }, { "data": "keperluan" }, { "data": "alamat" }, { "data": "alamat_sementara" },
+                }, { "data": "tgl_input_skts" },{ "data": "full_name" }, { "data": "nama" }, { "data": "nik" }, { "data": "no_kk" }, { "data": "jenis_kelamin" }, { "data": "tempat_lahir" }, { "data": "tgl_lahir" }, { "data": "pekerjaan" }, { "data": "keperluan" }, { "data": "alamat" }, { "data": "alamat_sementara" },
                 {
                     "data": "imageskts1",
                     "render": function (data) {

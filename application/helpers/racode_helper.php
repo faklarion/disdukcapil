@@ -13,6 +13,8 @@ function cmb_dinamis($name, $table, $field, $pk, $selected)
 	return $cmb;
 }
 
+
+
 function rename_string_is_aktif($string)
 {
 	return $string == 'y' ? 'Aktif' : 'Tidak Aktif';

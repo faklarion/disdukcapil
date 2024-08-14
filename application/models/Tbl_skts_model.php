@@ -17,7 +17,7 @@ class Tbl_skts_model extends CI_Model
 
     // datatables
     function json() {
-        $this->datatables->select('id_skts,status,keterangan,tgl_input_skts,keperluan,alamat_sementara,imageskts1,imageskts2,imageskts3,dt_penduduk.id_penduduk,nama,nik,no_kk,jenis_kelamin,tempat_lahir,tgl_lahir,pekerjaan,alamat');
+        $this->datatables->select('id_skts,status,full_name,keterangan,tgl_input_skts,keperluan,alamat_sementara,imageskts1,imageskts2,imageskts3,dt_penduduk.id_penduduk,nama,nik,no_kk,jenis_kelamin,tempat_lahir,tgl_lahir,pekerjaan,alamat');
         $this->datatables->from('tbl_skts');
         
         //add this line for join
@@ -38,7 +38,7 @@ class Tbl_skts_model extends CI_Model
     // get all
     function get_all()
     {
-        $this->db->select('id_skts,tgl_input_skts,status,keterangan,keperluan,alamat_sementara,imageskts1,imageskts2,imageskts3,dt_penduduk.id_penduduk,nama,nik,no_kk,jenis_kelamin,tempat_lahir,tgl_lahir,pekerjaan,alamat');
+        $this->db->select('id_skts,tgl_input_skts,status,full_name,keterangan,keperluan,alamat_sementara,imageskts1,imageskts2,imageskts3,dt_penduduk.id_penduduk,nama,nik,no_kk,jenis_kelamin,tempat_lahir,tgl_lahir,pekerjaan,alamat');
         $this->datatables->join('dt_penduduk', 'tbl_skts.id_penduduk = dt_penduduk.id_penduduk');
         $this->db->order_by($this->id, $this->order);
         return $this->db->get($this->table)->result();
@@ -47,7 +47,7 @@ class Tbl_skts_model extends CI_Model
 
     function get_all_bulan($bulan,$tahun)
     {
-        $this->db->select('id_skts,tgl_input_skts,status,keterangan,keperluan,alamat_sementara,imageskts1,imageskts2,imageskts3,dt_penduduk.id_penduduk,nama,nik,no_kk,jenis_kelamin,tempat_lahir,tgl_lahir,pekerjaan,alamat');
+        $this->db->select('id_skts,tgl_input_skts,status,keterangan,full_name,keperluan,alamat_sementara,imageskts1,imageskts2,imageskts3,dt_penduduk.id_penduduk,nama,nik,no_kk,jenis_kelamin,tempat_lahir,tgl_lahir,pekerjaan,alamat');
         $this->datatables->join('dt_penduduk', 'tbl_skts.id_penduduk = dt_penduduk.id_penduduk');
         $this->db->where('MONTH(tgl_input_skts)', $bulan);
         $this->db->where('YEAR(tgl_input_skts)', $tahun);
