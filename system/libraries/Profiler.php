@@ -99,19 +99,21 @@ class CI_Profiler {
 	{
 		$this->CI =& get_instance();
 		$this->CI->load->language('profiler');
-
+	
 		// default all sections to display
 		foreach ($this->_available_sections as $section)
 		{
 			if ( ! isset($config[$section]))
 			{
-				$this->_compile_{$section} = TRUE;
+				// Gunakan sintaks ini untuk mengakses properti secara dinamis
+				$this->{"_compile_{$section}"} = TRUE;
 			}
 		}
-
+	
 		$this->set_sections($config);
 		log_message('info', 'Profiler Class Initialized');
 	}
+	
 
 	// --------------------------------------------------------------------
 
@@ -135,10 +137,12 @@ class CI_Profiler {
 		{
 			if (in_array($method, $this->_available_sections))
 			{
-				$this->_compile_{$method} = ($enable !== FALSE);
+				// Gunakan sintaks ini untuk mengakses properti secara dinamis
+				$this->{"_compile_{$method}"} = ($enable !== FALSE);
 			}
 		}
 	}
+
 
 	// --------------------------------------------------------------------
 
@@ -539,24 +543,26 @@ class CI_Profiler {
 	{
 		$output = '<div id="codeigniter_profiler" style="clear:both;background-color:#fff;padding:10px;">';
 		$fields_displayed = 0;
-
+	
 		foreach ($this->_available_sections as $section)
 		{
-			if ($this->_compile_{$section} !== FALSE)
+			// Gunakan sintaks ini untuk mengakses properti secara dinamis
+			if ($this->{"_compile_{$section}"} !== FALSE)
 			{
 				$func = '_compile_'.$section;
 				$output .= $this->{$func}();
 				$fields_displayed++;
 			}
 		}
-
+	
 		if ($fields_displayed === 0)
 		{
 			$output .= '<p style="border:1px solid #5a0099;padding:10px;margin:20px 0;background-color:#eee;">'
 				.$this->CI->lang->line('profiler_no_profiles').'</p>';
 		}
-
+	
 		return $output.'</div>';
 	}
+	
 
 }
