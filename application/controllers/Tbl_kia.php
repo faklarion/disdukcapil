@@ -50,7 +50,7 @@ class Tbl_kia extends CI_Controller
     public function create() 
     {
         $data = array(
-            'button' => 'Create',
+            'button' => 'Masukkan',
             'action' => site_url('tbl_kia/create_action'),
             'tbl_aktalahir_data' => $this->Tbl_aktalahir_model->get_all(),
             'dt_penduduk_data' => $this->Dt_penduduk_model->get_all(),
@@ -222,7 +222,7 @@ class Tbl_kia extends CI_Controller
 
         if ($row) {
             $data = array(
-                'button' => 'Update',
+                'button' => 'Perbarui',
                 'action' => site_url('tbl_kia/update_action'),
                 'tbl_aktalahir_data' => $this->Tbl_aktalahir_model->get_all(),
             'dt_penduduk_data' => $this->Dt_penduduk_model->get_all(),

@@ -9,7 +9,7 @@
                     </div>
         
         <div class="box-body">
-        <div style="padding-bottom: 10px;"'>
+        <div style="padding-bottom: 10px;">
         <?php echo anchor(site_url('tbl_ktp/create'), '<i class="fa fa-wpforms" aria-hidden="true"></i> Tambah Data', 'class="btn btn-danger btn-sm"'); ?>
 		<?php echo anchor(site_url('tbl_ktp/word'), '<i class="fa fa-file-word-o" aria-hidden="true"></i> Export Ms Word', 'class="btn btn-primary btn-sm"'); ?></div>
         
@@ -36,7 +36,7 @@
                             ?>
                         </select>
                         <br>
-                        <input type="submit" name="submit" value="Submit" class="btn btn-primary">
+                        <input type="submit" name="submit" value="Cetak" class="btn btn-primary">
                         <input type="submit" name="cetaksemua" value="Cetak Semua" class="btn btn-warning">
                     </form>
         

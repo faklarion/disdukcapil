@@ -55,7 +55,7 @@ class Tbl_pindah extends CI_Controller
     public function create() 
     {
         $data = array(
-            'button' => 'Create',
+            'button' => 'Masukkan',
             'action' => site_url('tbl_pindah/create_action'),
             'dt_penduduk_data' => $this->Dt_penduduk_model->get_all(),
             'id_pindah' => set_value('id_pindah'),
@@ -180,7 +180,7 @@ class Tbl_pindah extends CI_Controller
 
         if ($row) {
             $data = array(
-                'button' => 'Update',
+                'button' => 'Perbarui',
                 'action' => site_url('tbl_pindah/update_action'),
                 'dt_penduduk_data' => $this->Dt_penduduk_model->get_all(),
 		'id_pindah' => set_value('id_pindah', $row->id_pindah),

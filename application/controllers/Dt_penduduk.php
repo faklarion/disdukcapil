@@ -56,7 +56,7 @@ class Dt_penduduk extends CI_Controller
 
         
         $data = array(
-            'button' => 'Create',
+            'button' => 'Masukkan',
             'action' => site_url('dt_penduduk/create_action'),
 	    'id_penduduk' => set_value('id_penduduk'),
 	    'no_kk' => set_value('no_kk'),
@@ -123,7 +123,7 @@ class Dt_penduduk extends CI_Controller
 
         if ($row) {
             $data = array(
-                'button' => 'Update',
+                'button' => 'Perbarui',
                 'action' => site_url('dt_penduduk/update_action'),
 		'id_penduduk' => set_value('id_penduduk', $row->id_penduduk),
 		'no_kk' => set_value('no_kk', $row->no_kk),

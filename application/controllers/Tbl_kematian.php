@@ -91,7 +91,7 @@ class Tbl_kematian extends CI_Controller
     public function create() 
     {
         $data = array(
-            'button' => 'Create',
+            'button' => 'Masukkan',
             'action' => site_url('tbl_kematian/create_action'),
             'dt_penduduk_data' => $this->Dt_penduduk_model->get_all(),
 	    'id_kematian' => set_value('id_kematian'),
@@ -213,7 +213,7 @@ class Tbl_kematian extends CI_Controller
 
         if ($row) {
             $data = array(
-                'button' => 'Update',
+                'button' => 'Perbarui',
                 'action' => site_url('tbl_kematian/update_action'),
                 'dt_penduduk_data' => $this->Dt_penduduk_model->get_all(),
 		'id_kematian' => set_value('id_kematian', $row->id_kematian),

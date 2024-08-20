@@ -46,7 +46,7 @@ class Tbl_ktp extends CI_Controller
     public function create() 
     {
         $data = array(
-            'button' => 'Create',
+            'button' => 'Masukkan',
             'action' => site_url('tbl_ktp/create_action'),
             'dt_penduduk_data' => $this->Dt_penduduk_model->get_all(),
 	    'id_ktp' => set_value('id_ktp'),
@@ -87,10 +87,10 @@ class Tbl_ktp extends CI_Controller
             $options        = array("cost"=>4);
             $hashPassword   = password_hash($password,PASSWORD_BCRYPT,$options);
             $data = array(
-		'tgl_input_ktp' => $this->input->post('tgl_input_ktp',TRUE),
-		'negara_ktp' => $this->input->post('negara_ktp',TRUE),
-		'id_penduduk' => $this->input->post('id_penduduk',TRUE),
-		'imagektp' =>$foto1['file_name'],
+                'tgl_input_ktp' => $this->input->post('tgl_input_ktp',TRUE),
+                'negara_ktp' => $this->input->post('negara_ktp',TRUE),
+                'id_penduduk' => $this->input->post('id_penduduk',TRUE),
+                'imagektp' =>$foto1['file_name'],
 	    );
 
             $this->Tbl_ktp_model->insert($data);
@@ -160,7 +160,7 @@ class Tbl_ktp extends CI_Controller
 
         if ($row) {
             $data = array(
-                'button' => 'Update',
+                'button' => 'Perbarui',
                 'action' => site_url('tbl_ktp/update_action'),
                 'dt_penduduk_data' => $this->Dt_penduduk_model->get_all(),
 		'id_ktp' => set_value('id_ktp', $row->id_ktp),

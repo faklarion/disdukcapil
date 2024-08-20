@@ -56,7 +56,7 @@ class Tbl_skts extends CI_Controller
     public function create()
     {
         $data = array(
-            'button' => 'Create',
+            'button' => 'Masukkan',
             'action' => site_url('tbl_skts/create_action'),
             'dt_penduduk_data' => $this->Dt_penduduk_model->get_all(),
             'id_skts' => set_value('id_skts'),
@@ -195,7 +195,7 @@ class Tbl_skts extends CI_Controller
 
         if ($row) {
             $data = array(
-                'button' => 'Update',
+                'button' => 'Perbarui',
                 'action' => site_url('tbl_skts/update_action'),
                 'dt_penduduk_data' => $this->Dt_penduduk_model->get_all(),
                 'id_skts' => set_value('id_skts', $row->id_skts),

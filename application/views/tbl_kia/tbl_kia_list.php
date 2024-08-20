@@ -35,7 +35,7 @@
                             ?>
                         </select>
                         <br>
-                        <input type="submit" name="submit" value="Submit" class="btn btn-primary">
+                        <input type="submit" name="submit" value="Cetak" class="btn btn-primary">
                         <input type="submit" name="cetaksemua" value="Cetak Semua" class="btn btn-warning">
                     </form>
                         

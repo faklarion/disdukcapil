@@ -42,7 +42,7 @@ class Tbl_perceraian extends CI_Controller
     public function create() 
     {
         $data = array(
-            'button' => 'Create',
+            'button' => 'Masukkan',
             'action' => site_url('tbl_perceraian/create_action'),
             'dt_penduduk_data' => $this->Dt_penduduk_model->get_all(),
 	    'id_perceraian' => set_value('id_perceraian'),
@@ -200,7 +200,7 @@ class Tbl_perceraian extends CI_Controller
 
         if ($row) {
             $data = array(
-                'button' => 'Update',
+                'button' => 'Perbarui',
                 'action' => site_url('tbl_perceraian/update_action'),
                 'dt_penduduk_data' => $this->Dt_penduduk_model->get_all(),
 		'id_perceraian' => set_value('id_perceraian', $row->id_perceraian),

@@ -5,7 +5,7 @@
                 <div class="box box-warning box-solid">
     
                     <div class="box-header">
-                        <h3 class="box-title">KELOLA DATA Kartu Keluarga</h3>
+                        <h3 class="box-title">KELOLA DATA KARTU KELUARGA</h3>
                     </div>
         
         <div class="box-body">
@@ -36,7 +36,7 @@
                             ?>
                         </select>
                         <br>
-                        <input type="submit" name="submit" value="Submit" class="btn btn-primary">
+                        <input type="submit" name="submit" value="Cetak" class="btn btn-primary">
                         <input type="submit" name="cetaksemua" value="Cetak Semua" class="btn btn-warning">
                     </form>
         
@@ -44,23 +44,23 @@
             <thead>
                 <tr>
                     <th width="30px">No</th>
-		    <th>Tanggal Terbit</th>
-            <th>Pemohon</th>
-            <th>No KK</th>
-            <th>Kepala Keluarga</th>
-            <th>NIK</th>
-            <th>Jeniskelamin</th>
-            <th>Tempat Lahir</th>
-            <th>Tanggal Lahir</th>
-            <th>Agama</th>
-            <th>Pendidikan</th>
-            <th>Pekerjaan</th>
-            <th>Golongan Darah</th>
-            <th>Alamat</th>
-		    <th>Upload File</th>
-            <th>Upload File</th>
-            <th>Upload File</th>
-		    <th width="200px">Action</th>
+                    <th>Tanggal Terbit</th>
+                    <th>Pemohon</th>
+                    <th>No KK</th>
+                    <th>Kepala Keluarga</th>
+                    <th>NIK</th>
+                    <th>Jeniskelamin</th>
+                    <th>Tempat Lahir</th>
+                    <th>Tanggal Lahir</th>
+                    <th>Agama</th>
+                    <th>Pendidikan</th>
+                    <th>Pekerjaan</th>
+                    <th>Golongan Darah</th>
+                    <th>Alamat</th>
+                    <th>Upload File</th>
+                    <th>Upload File</th>
+                    <th>Upload File</th>
+                    <th width="200px">Action</th>
                 </tr>
             </thead>
 	    

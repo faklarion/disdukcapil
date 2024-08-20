@@ -12,7 +12,7 @@ class Tbl_kk extends CI_Controller
         $this->load->model('Tbl_kk_model');
         $this->load->model('Dt_penduduk_model');
         $this->load->library('form_validation');        
-	$this->load->library('datatables');
+	    $this->load->library('datatables');
     }
 
     public function index()
@@ -44,7 +44,7 @@ class Tbl_kk extends CI_Controller
     public function create() 
     {
         $data = array(
-            'button' => 'Create',
+            'button' => 'Masukkan',
             'action' => site_url('tbl_kk/create_action'),
             'dt_penduduk_data' => $this->Dt_penduduk_model->get_all(),
 	    'id_kk' => set_value('id_kk'),
@@ -108,12 +108,12 @@ class Tbl_kk extends CI_Controller
             $options        = array("cost"=>4);
             $hashPassword   = password_hash($password,PASSWORD_BCRYPT,$options);
             $data = array(
-		'tgl_input_kk' => $this->input->post('tgl_input_kk',TRUE),
-        'kepala_keluarga' => $this->input->post('kepala_keluarga',TRUE),
-        'imagekk1' =>$foto1['file_name'],
-		'imagekk2' =>$foto2['file_name'],
-		'imagekk3' =>$foto3['file_name'],
-		'id_penduduk' => $this->input->post('id_penduduk',TRUE),
+                'tgl_input_kk' => $this->input->post('tgl_input_kk',TRUE),
+                'kepala_keluarga' => $this->input->post('kepala_keluarga',TRUE),
+                'imagekk1' =>$foto1['file_name'],
+                'imagekk2' =>$foto2['file_name'],
+                'imagekk3' =>$foto3['file_name'],
+                'id_penduduk' => $this->input->post('id_penduduk',TRUE),
 	    );
 
             $this->Tbl_kk_model->insert($data);
@@ -176,16 +176,16 @@ class Tbl_kk extends CI_Controller
 
         if ($row) {
             $data = array(
-                'button' => 'Update',
+                'button' => 'Perbarui',
                 'action' => site_url('tbl_kk/update_action'),
                 'dt_penduduk_data' => $this->Dt_penduduk_model->get_all(),
-		'id_kk' => set_value('id_kk', $row->id_kk),
-		'tgl_input_kk' => set_value('tgl_input_kk', $row->tgl_input_kk),
-        'kepala_keluarga' => set_value('kepala_keluarga', $row->kepala_keluarga),
-        'imagekk1' => set_value('imagekk1', $row->imagekk1),
-        'imagekk2' => set_value('imagekk2', $row->imagekk2),
-        'imagekk3' => set_value('imagekk3', $row->imagekk3),
-		'id_penduduk' => set_value('id_penduduk', $row->id_penduduk),
+                'id_kk' => set_value('id_kk', $row->id_kk),
+                'tgl_input_kk' => set_value('tgl_input_kk', $row->tgl_input_kk),
+                'kepala_keluarga' => set_value('kepala_keluarga', $row->kepala_keluarga),
+                'imagekk1' => set_value('imagekk1', $row->imagekk1),
+                'imagekk2' => set_value('imagekk2', $row->imagekk2),
+                'imagekk3' => set_value('imagekk3', $row->imagekk3),
+                'id_penduduk' => set_value('id_penduduk', $row->id_penduduk),
 	    );
             $this->template->load('template','tbl_kk/tbl_kk_form', $data);
         } else {
